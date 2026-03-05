@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+
+  <!-- OG / WhatsApp preview — populated dynamically by app.js from event.json -->
+  <meta property="og:type"  content="website" />
+
+  <title>Cargando invitación…</title>
+
+  <!-- Font Awesome (icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Google Fonts injected dynamically by ThemeEngine from theme.json -->
+
+  <!-- App stylesheet -->
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body class="is-loading">
+
+  <!-- ════════════════════════════════════════════
+       DOM Shells — content injected by sections.js
+       Each id maps 1:1 to a render function.
+       ════════════════════════════════════════════ -->
+
+  <!-- 1. Hero -->
+  <section id="section-hero" class="section" aria-label="Portada"></section>
+
+  <!-- 2. Countdown -->
+  <section id="section-countdown" aria-label="Cuenta regresiva"></section>
+
+  <!-- 3. Event Details -->
+  <section id="section-event" class="section section--alt" aria-label="Detalles del evento"></section>
+
+  <!-- 4. Gallery -->
+  <section id="section-gallery" class="section" aria-label="Galería de fotos"></section>
+
+  <!-- 5. Dress Code -->
+  <section id="section-dresscode" class="section section--alt" aria-label="Código de vestimenta"></section>
+
+  <!-- 6. RSVP -->
+  <section id="section-rsvp" class="section" aria-label="Confirmación de asistencia"></section>
+
+  <!-- 7. Footer — rendered inline, content from config -->
+  <footer id="section-footer"></footer>
+
+  <!-- 8. Music (fixed floating button) -->
+  <div id="music-control" aria-label="Control de música"></div>
+
+  <!-- ════════════════════════════════════════════
+       App entry point — ES Modules
+       ════════════════════════════════════════════ -->
+  <script type="module" src="components/app.js"></script>
+
+  <!-- Inline footer render (no component needed, simple content) -->
+  <script type="module">
+    import ConfigLoader from './components/ConfigLoader.js';
+    ConfigLoader.load().then(config => {
+      const f = document.getElementById('section-footer');
+      if (!f || !config.footer) return;
+      f.innerHTML = `
+        <p class="footer__message">${config.footer.message}</p>
+        <p class="footer__brand">
+          Hecho con ♥ por
+          <a href="${config.footer.brandUrl}" target="_blank" rel="noopener">${config.footer.brand}</a>
+        </p>
+      `;
+    });
+  </script>
+</body>
+</html>

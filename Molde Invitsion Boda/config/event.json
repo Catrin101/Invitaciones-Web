@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Isabella & Mateo — 12 de Julio 2025",
+    "description": "Nos casamos. Queremos que seas parte de este momento.",
+    "url": "https://catrin101.github.io/boda-demo",
+    "language": "es"
+  },
+
+  "couple": {
+    "bride":       "Isabella",
+    "groom":       "Mateo",
+    "brideFamily": "Familia Montoya Ruiz",
+    "groomFamily": "Familia Castellanos Vega",
+    "story":       "Nos conocimos en una tarde de lluvia, en una librería que ya no existe. Él buscaba un libro que yo ya tenía. El resto, como dicen, es historia.",
+    "heroImage":   "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1400&q=85",
+    "heroImageAlt":"Isabella y Mateo"
+  },
+
+  "event": {
+    "date":        "2025-07-12T17:00:00",
+    "dateDisplay": "12 · VII · 2025",
+    "time":        "5:00 PM",
+    "ceremony": {
+      "label":    "Ceremonia",
+      "time":     "5:00 PM",
+      "venue":    "Parroquia de San Francisco de Asís",
+      "address":  "Calle Reforma #45, Mexicali, B.C.",
+      "mapsUrl":  "https://maps.google.com/?q=Parroquia+San+Francisco+Mexicali"
+    },
+    "reception": {
+      "label":    "Recepción",
+      "time":     "8:00 PM",
+      "venue":    "Hacienda Los Álamos",
+      "address":  "Carr. Mexicali–Tijuana Km. 12",
+      "mapsUrl":  "https://maps.google.com/?q=Hacienda+Los+Alamos+Mexicali"
+    }
+  },
+
+  "countdown": {
+    "labels": {
+      "days":    "Días",
+      "hours":   "Horas",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    }
+  },
+
+  "gallery": {
+    "photos": [
+      { "url": "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80", "alt": "Pareja en jardín" },
+      { "url": "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80", "alt": "Ramo de novia" },
+      { "url": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80", "alt": "Ceremonia" },
+      { "url": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80", "alt": "Anillos" },
+      { "url": "https://images.unsplash.com/photo-1470290378698-263fa7ca60ab?w=800&q=80", "alt": "Decoración" }
+    ]
+  },
+
+  "dresscode": {
+    "label":       "Etiqueta formal",
+    "description": "Les pedimos vestimenta formal. Paleta sugerida: tonos tierra, verde salvia, vino o negro. Evitar blanco y rojo.",
+    "colors": [
+      { "name": "Salvia",  "hex": "#7D9B76" },
+      { "name": "Cobre",   "hex": "#B87333" },
+      { "name": "Arena",   "hex": "#C2A882" },
+      { "name": "Vino",    "hex": "#6B2737" },
+      { "name": "Blanco",  "hex": "#F5F0E8", "avoid": true }
+    ]
+  },
+
+  "rsvp": {
+    "deadline":    "30 de Junio de 2025",
+    "whatsapp": {
+      "number":  "526864602677",
+      "message": "Hola! Confirmo mi asistencia a la boda de Isabella y Mateo el 12 de Julio. Mi nombre es: "
+    },
+    "buttonText": "Confirmar Asistencia"
+  },
+
+  "music": {
+    "enabled": true,
+    "src":     "assets/audio/background.mp3",
+    "loop":    true
+  },
+
+  "footer": {
+    "message": "Isabella & Mateo — 12 · VII · 2025",
+    "brand":    "Gudino Dev",
+    "brandUrl": "https://catrin101.github.io"
+  }
+}
