@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "XV Años Valentina Herrera 🌸",
-    "description": "Te invito a celebrar mis XV años. 15 de Junio 2025",
+    "description": "Te invito a celebrar mis XV años. 15 de Junio 2026",
     "url": "https://catrin101.github.io/demo-xv-valentina",
     "language": "es"
   },
@@ -18,8 +18,8 @@
     "imageAlt": "Valentina — XV Años"
   },
   "event": {
-    "date": "2025-06-15T19:00:00",
-    "dateDisplay": "15 de Junio de 2025",
+    "date": "2026-06-15T19:00:00",
+    "dateDisplay": "15 de Junio de 2026",
     "time": "7:00 PM",
     "venue": {
       "name": "Salón El Jardín Real",
@@ -44,11 +44,11 @@
         "alt": "Retrato elegante"
       },
       {
-        "url": "https://images.unsplash.com/photo-1549298222-1c26cbbe4e35?w=600&q=75",
+        "url": "./assets/img/KL23813.webp",
         "alt": "Vestido de noche"
       },
       {
-        "url": "https://images.unsplash.com/photo-1490750967868-88df5691cc7e?w=600&q=75",
+        "url": "https://images.unsplash.com/photo-1533616688419-b7a585564566?w=800&q=80",
         "alt": "Arreglo floral"
       },
       {
@@ -56,7 +56,7 @@
         "alt": "Salón del evento"
       },
       {
-        "url": "https://images.unsplash.com/photo-1583397786765-64836b3e0b74?w=600&q=75",
+        "url": "./assets/img/s-l400.webp",
         "alt": "Tiara de quinceañera"
       },
       {
@@ -92,7 +92,7 @@
   "rsvp": {
     "title": "Confirma tu Asistencia",
     "subtitle": "Tu presencia es el mejor regalo",
-    "deadline": "10 de Junio de 2025",
+    "deadline": "10 de Junio de 2026",
     "whatsapp": {
       "number": "526864602677",
       "message": "Hola! Confirmo mi asistencia a los XV años de Valentina el 15 de Junio. Mi nombre es: "

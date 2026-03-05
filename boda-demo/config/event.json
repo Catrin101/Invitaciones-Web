@@ -4,7 +4,7 @@
     "signature": "— Isabella & Mateo"
   },
   "meta": {
-    "title": "Isabella & Mateo — 12 de Julio 2025",
+    "title": "Isabella & Mateo — 12 de Julio 2026",
     "description": "Nos casamos. Queremos que seas parte de este momento.",
     "url": "https://catrin101.github.io/boda-demo",
     "language": "es"
@@ -19,8 +19,8 @@
     "heroImageAlt": "Isabella y Mateo"
   },
   "event": {
-    "date": "2025-07-12T17:00:00",
-    "dateDisplay": "12 · VII · 2025",
+    "date": "2026-07-12T17:00:00",
+    "dateDisplay": "12 · VII · 2026",
     "time": "5:00 PM",
     "ceremony": {
       "label": "Ceremonia",
@@ -97,7 +97,7 @@
     ]
   },
   "rsvp": {
-    "deadline": "30 de Junio de 2025",
+    "deadline": "30 de Junio de 2026",
     "whatsapp": {
       "number": "526864602677",
       "message": "Hola! Confirmo mi asistencia a la boda de Isabella y Mateo el 12 de Julio. Mi nombre es: "
@@ -110,7 +110,7 @@
     "loop": true
   },
   "footer": {
-    "message": "Isabella & Mateo — 12 · VII · 2025",
+    "message": "Isabella & Mateo — 12 · VII · 2026",
     "brand": "Gudino Dev",
     "brandUrl": "https://catrin101.github.io"
   }
