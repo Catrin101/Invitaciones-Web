@@ -7,14 +7,15 @@
  * Import order: ConfigLoader → ThemeEngine → sections → ScrollReveal
  */
 
-import ConfigLoader  from './ConfigLoader.js';
-import ThemeEngine   from './ThemeEngine.js';
-import ScrollReveal  from './ScrollReveal.js';
+import ConfigLoader from './ConfigLoader.js';
+import ThemeEngine from './ThemeEngine.js';
+import ScrollReveal from './ScrollReveal.js';
 import {
   renderMeta,
   renderHero,
   renderCountdown,
   renderEventDetails,
+  renderItinerary,
   renderGallery,
   renderDressCode,
   renderRSVP,
@@ -39,6 +40,7 @@ async function init() {
     renderHero(config.hero, theme);
     renderCountdown(config.event, config.countdown.labels);
     renderEventDetails(config.event);
+    renderItinerary(config.itinerary);
     renderGallery(config.gallery);
     renderDressCode(config.dresscode);
     renderRSVP(config.rsvp);

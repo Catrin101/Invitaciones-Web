@@ -1,17 +1,17 @@
 {
   "theme": {
-    "name": "xv-elegante",
-    "description": "Elegante romántico — fondo oscuro con acentos dorados y rosa",
+    "name": "xv-pastel",
+    "description": "Temática 15 años — tonos pastel, rosa, lavanda y celeste",
     "colors": {
-      "background": "#0D0D0D",
-      "surface": "#1A1A1A",
-      "surfaceAlt": "#141414",
-      "accentPrimary": "#C9A84C",
-      "accentSecond": "#E8B4B8",
-      "text": "#F5F0E8",
-      "textMuted": "#B0A899",
+      "background": "#FCF9FE",
+      "surface": "#FFFFFF",
+      "surfaceAlt": "#F8F1FA",
+      "accentPrimary": "#B19CD9",
+      "accentSecond": "#FFB7B2",
+      "text": "#3B3045",
+      "textMuted": "#857591",
       "ctaWhatsapp": "#25D366",
-      "overlay": "rgba(0,0,0,0.50)"
+      "overlay": "rgba(255, 255, 255, 0.40)"
     },
     "fonts": {
       "display": {
@@ -44,9 +44,9 @@
       "radiusRound": "50px"
     },
     "shadows": {
-      "gold": "0 0 40px rgba(201,168,76,0.15)",
+      "gold": "0 0 40px rgba(177, 156, 217, 0.3)",
       "whatsapp": "0 4px 20px rgba(37,211,102,0.4)",
-      "card": "0 8px 32px rgba(0,0,0,0.4)"
+      "card": "0 8px 32px rgba(177, 156, 217, 0.15)"
     },
     "animations": {
       "heroFadeIn": "0.9s",

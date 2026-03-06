@@ -4,15 +4,16 @@
  * Orden: ConfigLoader → ThemeEngine → sections → ChapterEngine
  */
 
-import ConfigLoader   from './ConfigLoader.js';
-import ThemeEngine    from './ThemeEngine.js';
-import ChapterEngine  from './ChapterEngine.js';
+import ConfigLoader from './ConfigLoader.js';
+import ThemeEngine from './ThemeEngine.js';
+import ChapterEngine from './ChapterEngine.js';
 import {
   renderMeta,
   renderHero,
   renderStory,
   renderCountdown,
   renderDetails,
+  renderItinerary,
   renderGallery,
   renderDressCode,
   renderRSVP,
@@ -21,13 +22,14 @@ import {
 
 // Definición de capítulos — orden = secuencia de navegación
 const CHAPTERS = [
-  { id: 'ch-hero',      label: 'Portada'          },
-  { id: 'ch-story',     label: 'Nuestra historia'  },
-  { id: 'ch-countdown', label: 'Cuenta regresiva'  },
-  { id: 'ch-details',   label: 'El gran día'       },
-  { id: 'ch-gallery',   label: 'Galería'           },
-  { id: 'ch-dresscode', label: 'Vestimenta'        },
-  { id: 'ch-rsvp',      label: 'Confirmar'         },
+  { id: 'ch-hero', label: 'Portada' },
+  { id: 'ch-story', label: 'Nuestra historia' },
+  { id: 'ch-countdown', label: 'Cuenta regresiva' },
+  { id: 'ch-details', label: 'El gran día' },
+  { id: 'ch-itinerary', label: 'Itinerario' },
+  { id: 'ch-gallery', label: 'Galería' },
+  { id: 'ch-dresscode', label: 'Vestimenta' },
+  { id: 'ch-rsvp', label: 'Confirmar' },
 ];
 
 async function init() {
@@ -49,6 +51,7 @@ async function init() {
     renderStory(config.couple);
     renderCountdown(config.event, config.countdown.labels);
     renderDetails(config.event);
+    renderItinerary(config.itinerary);
     renderGallery(config.gallery);
     renderDressCode(config.dresscode);
     renderRSVP(config.rsvp);

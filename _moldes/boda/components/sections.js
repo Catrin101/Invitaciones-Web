@@ -7,6 +7,32 @@
  */
 
 // ─────────────────────────────────────────────
+// CH 4.5 — ITINERARIO
+// ─────────────────────────────────────────────
+export function renderItinerary(itinerary) {
+  const el = document.getElementById('ch-itinerary');
+  if (!el || !itinerary) return;
+
+  el.innerHTML = `
+    <div class="full-content full-content--alt">
+      <span class="chapter-label">Itinerario</span>
+      <h2 class="headline headline--md">${itinerary.title}</h2>
+      <p class="body-text" style="text-align:center;margin-bottom:2rem">${itinerary.subtitle}</p>
+      
+      <div class="itinerary-list">
+        ${itinerary.events.map(ev => `
+          <div class="itinerary-list__item">
+            <div class="itinerary-list__time">${ev.time}</div>
+            <div class="itinerary-list__icon"><i class="${ev.icon}"></i></div>
+            <div class="itinerary-list__title">${ev.title}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// ─────────────────────────────────────────────
 // META TAGS (OG / WhatsApp preview)
 // ─────────────────────────────────────────────
 export function renderMeta(meta, couple) {
@@ -20,11 +46,11 @@ export function renderMeta(meta, couple) {
     el.setAttribute('content', val);
   };
   document.title = meta.title;
-  setMeta('og:title',       meta.title);
+  setMeta('og:title', meta.title);
   setMeta('og:description', meta.description);
-  setMeta('og:image',       couple.heroImage);
-  setMeta('og:url',         meta.url);
-  setMeta('theme-color',    'var(--color-accent2)', 'name');
+  setMeta('og:image', couple.heroImage);
+  setMeta('og:url', meta.url);
+  setMeta('theme-color', 'var(--color-accent2)', 'name');
 }
 
 // ─────────────────────────────────────────────
@@ -99,7 +125,7 @@ export function renderCountdown(event, labels) {
     <div class="full-content full-content--dark">
       <span class="chapter-label chapter-label--light">Faltan</span>
       <div class="cd-grid">
-        ${['days','hours','minutes','seconds'].map(unit => `
+        ${['days', 'hours', 'minutes', 'seconds'].map(unit => `
           <div class="cd-block">
             <span class="cd-num" id="cd-${unit}">--</span>
             <div class="cd-label">${labels[unit]}</div>
@@ -112,7 +138,7 @@ export function renderCountdown(event, labels) {
 
   // Countdown logic
   const target = new Date(event.date).getTime();
-  const pad    = n => String(n).padStart(2, '0');
+  const pad = n => String(n).padStart(2, '0');
 
   function tick() {
     const diff = target - Date.now();
@@ -123,8 +149,8 @@ export function renderCountdown(event, labels) {
         </p>`;
       return;
     }
-    document.getElementById('cd-days').textContent    = pad(Math.floor(diff / 86400000));
-    document.getElementById('cd-hours').textContent   = pad(Math.floor((diff % 86400000) / 3600000));
+    document.getElementById('cd-days').textContent = pad(Math.floor(diff / 86400000));
+    document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
     document.getElementById('cd-minutes').textContent = pad(Math.floor((diff % 3600000) / 60000));
     document.getElementById('cd-seconds').textContent = pad(Math.floor((diff % 60000) / 1000));
   }
@@ -280,7 +306,7 @@ export function renderMusicControl(music) {
   btn.addEventListener('click', () => {
     playing = !playing;
     if (playing) {
-      audio?.play().catch(() => {});
+      audio?.play().catch(() => { });
       btn.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
       btn.classList.add('playing');
       btn.setAttribute('aria-label', 'Pausar música');

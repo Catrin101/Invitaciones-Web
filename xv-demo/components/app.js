@@ -17,6 +17,7 @@ import {
   renderHero,
   renderCountdown,
   renderEventDetails,
+  renderItinerary,
   renderGallery,
   renderDressCode,
   renderRSVP,
@@ -73,6 +74,7 @@ async function init() {
     renderHero(config.hero, theme);
     renderCountdown(config.event, config.countdown.labels);
     renderEventDetails(config.event);
+    renderItinerary(config.itinerary);
     renderGallery(config.gallery);
     renderDressCode(config.dresscode);
     renderRSVP(config.rsvp);

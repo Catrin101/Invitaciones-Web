@@ -288,6 +288,32 @@ export function renderMusicControl(music) {
 }
 
 // ─────────────────────────────────────────────
+// ITINERARY
+// ─────────────────────────────────────────────
+export function renderItinerary(itinerary) {
+  const el = document.getElementById('section-itinerary');
+  if (!el || !itinerary) return;
+
+  el.innerHTML = `
+    <header class="section__header reveal-up">
+      <h2 class="section__title">${itinerary.title}</h2>
+      <p class="section__subtitle">${itinerary.subtitle}</p>
+    </header>
+    <div class="itinerary__list reveal-up">
+      ${itinerary.events.map(ev => `
+        <div class="itinerary__item">
+          <div class="itinerary__time">${ev.time}</div>
+          <div class="itinerary__icon"><i class="${ev.icon}"></i></div>
+          <div class="itinerary__content">
+            <h3 class="itinerary__event-title">${ev.title}</h3>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+// ─────────────────────────────────────────────
 // META TAGS (OG / WhatsApp preview)
 // ─────────────────────────────────────────────
 export function renderMeta(meta, hero) {

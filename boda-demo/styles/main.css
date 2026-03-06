@@ -562,6 +562,49 @@ body::after {
   color: var(--color-accent2);
 }
 
+/* ─── Itinerary ─────────────────────────────────────────── */
+.itinerary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.itinerary-list__item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--color-bg);
+  padding: 1.2rem;
+  border-radius: 4px;
+  /* match theme base radius */
+  border: 1px solid rgba(42, 33, 24, 0.08);
+  /* match theme muted border */
+}
+
+.itinerary-list__time {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  min-width: 60px;
+}
+
+.itinerary-list__icon {
+  font-size: 1.4rem;
+  color: var(--color-accent2);
+  width: 40px;
+  text-align: center;
+}
+
+.itinerary-list__title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: bold;
+}
+
 /* ─── Gallery mosaic ────────────────────────────────────── */
 .mosaic {
   display: grid;

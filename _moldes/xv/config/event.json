@@ -5,7 +5,6 @@
     "url": "https://catrin101.github.io/demo-xv-valentina",
     "language": "es"
   },
-
   "hero": {
     "name": "Valentina",
     "lastName": "Herrera González",
@@ -14,7 +13,6 @@
     "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=80",
     "imageAlt": "Valentina — XV Años"
   },
-
   "event": {
     "date": "2025-06-15T19:00:00",
     "dateDisplay": "15 de Junio de 2025",
@@ -25,7 +23,32 @@
       "mapsUrl": "https://maps.google.com/?q=Salon+El+Jardin+Real+Mexicali"
     }
   },
-
+  "itinerary": {
+    "title": "Itinerario",
+    "subtitle": "Lo que nos espera en este día",
+    "events": [
+      {
+        "time": "18:00",
+        "title": "Ceremonia",
+        "icon": "fa-solid fa-church"
+      },
+      {
+        "time": "19:00",
+        "title": "Recepción",
+        "icon": "fa-solid fa-champagne-glasses"
+      },
+      {
+        "time": "20:00",
+        "title": "Cena",
+        "icon": "fa-solid fa-utensils"
+      },
+      {
+        "time": "22:00",
+        "title": "Fiesta",
+        "icon": "fa-solid fa-music"
+      }
+    ]
+  },
   "countdown": {
     "labels": {
       "days": "Días",
@@ -34,7 +57,6 @@
       "seconds": "Segundos"
     }
   },
-
   "gallery": {
     "title": "Galería",
     "subtitle": "Momentos que guardaré para siempre",
@@ -65,19 +87,30 @@
       }
     ]
   },
-
   "dresscode": {
     "title": "Código de Vestimenta",
     "subtitle": "Formal",
     "description": "Les pedimos asistir en vestimenta formal. Agradecemos evitar el color blanco y rojo.",
     "colors": [
-      { "name": "Rosa",   "hex": "#E8B4B8" },
-      { "name": "Dorado", "hex": "#C9A84C" },
-      { "name": "Blanco", "hex": "#F5F0E8", "avoid": true },
-      { "name": "Negro",  "hex": "#1A1A1A" }
+      {
+        "name": "Rosa",
+        "hex": "#E8B4B8"
+      },
+      {
+        "name": "Dorado",
+        "hex": "#C9A84C"
+      },
+      {
+        "name": "Blanco",
+        "hex": "#F5F0E8",
+        "avoid": true
+      },
+      {
+        "name": "Negro",
+        "hex": "#1A1A1A"
+      }
     ]
   },
-
   "rsvp": {
     "title": "Confirma tu Asistencia",
     "subtitle": "Tu presencia es el mejor regalo",
@@ -88,7 +121,6 @@
     },
     "buttonText": "Confirmar por WhatsApp"
   },
-
   "music": {
     "enabled": true,
     "src": "assets/audio/background.mp3",
@@ -96,7 +128,6 @@
     "loop": true,
     "tooltip": "Música"
   },
-
   "footer": {
     "message": "Con amor, la familia Herrera González",
     "brand": "Gudino Dev",

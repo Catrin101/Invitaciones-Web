@@ -37,6 +37,32 @@
       "mapsUrl": "https://maps.google.com/?q=Hacienda+Los+Alamos+Mexicali"
     }
   },
+  "itinerary": {
+    "title": "Itinerario",
+    "subtitle": "Lo que nos espera en este día",
+    "events": [
+      {
+        "time": "18:00",
+        "title": "Ceremonia",
+        "icon": "fa-solid fa-ring"
+      },
+      {
+        "time": "19:00",
+        "title": "Recepción",
+        "icon": "fa-solid fa-champagne-glasses"
+      },
+      {
+        "time": "20:00",
+        "title": "Cena",
+        "icon": "fa-solid fa-utensils"
+      },
+      {
+        "time": "22:00",
+        "title": "Fiesta",
+        "icon": "fa-solid fa-music"
+      }
+    ]
+  },
   "countdown": {
     "labels": {
       "days": "Días",

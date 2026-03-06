@@ -42,7 +42,7 @@ export function renderCountdown(event, labels) {
 
   el.innerHTML = `
     <div class="countdown__grid">
-      ${['days','hours','minutes','seconds'].map(unit => `
+      ${['days', 'hours', 'minutes', 'seconds'].map(unit => `
         <div class="countdown__block reveal-up">
           <span class="countdown__number" id="cd-${unit}">--</span>
           <span class="countdown__label">${labels[unit]}</span>
@@ -52,7 +52,7 @@ export function renderCountdown(event, labels) {
   `;
 
   function tick() {
-    const now  = Date.now();
+    const now = Date.now();
     const diff = target - now;
 
     if (diff <= 0) {
@@ -63,13 +63,13 @@ export function renderCountdown(event, labels) {
 
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000)  / 60000);
-    const s = Math.floor((diff % 60000)    / 1000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
 
     const pad = (n) => String(n).padStart(2, '0');
 
-    document.getElementById('cd-days').textContent    = pad(d);
-    document.getElementById('cd-hours').textContent   = pad(h);
+    document.getElementById('cd-days').textContent = pad(d);
+    document.getElementById('cd-hours').textContent = pad(h);
     document.getElementById('cd-minutes').textContent = pad(m);
     document.getElementById('cd-seconds').textContent = pad(s);
   }
@@ -224,14 +224,14 @@ export function renderMusicControl(music) {
     </button>
   `;
 
-  const audio  = document.getElementById('bg-audio');
-  const btn    = document.getElementById('music-btn');
-  let playing  = false;
+  const audio = document.getElementById('bg-audio');
+  const btn = document.getElementById('music-btn');
+  let playing = false;
 
   btn.addEventListener('click', () => {
     playing = !playing;
     if (playing) {
-      audio.play().catch(() => {}); // Ignore autoplay policy rejections
+      audio.play().catch(() => { }); // Ignore autoplay policy rejections
       btn.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
       btn.setAttribute('aria-label', 'Pausar música');
       btn.setAttribute('aria-pressed', 'true');
@@ -244,6 +244,32 @@ export function renderMusicControl(music) {
       btn.classList.remove('music-btn--playing');
     }
   });
+}
+
+// ─────────────────────────────────────────────
+// ITINERARY
+// ─────────────────────────────────────────────
+export function renderItinerary(itinerary) {
+  const el = document.getElementById('section-itinerary');
+  if (!el || !itinerary) return;
+
+  el.innerHTML = `
+    <header class="section__header reveal-up">
+      <h2 class="section__title">${itinerary.title}</h2>
+      <p class="section__subtitle">${itinerary.subtitle}</p>
+    </header>
+    <div class="itinerary__list reveal-up">
+      ${itinerary.events.map(ev => `
+        <div class="itinerary__item">
+          <div class="itinerary__time">${ev.time}</div>
+          <div class="itinerary__icon"><i class="${ev.icon}"></i></div>
+          <div class="itinerary__content">
+            <h3 class="itinerary__event-title">${ev.title}</h3>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
 
 // ─────────────────────────────────────────────
@@ -261,9 +287,9 @@ export function renderMeta(meta, hero) {
   };
 
   document.title = meta.title;
-  setMeta('og:title',       meta.title);
+  setMeta('og:title', meta.title);
   setMeta('og:description', meta.description);
-  setMeta('og:image',       hero.image);
-  setMeta('og:url',         meta.url);
-  setMeta('theme-color',    '#C9A84C', 'name');
+  setMeta('og:image', hero.image);
+  setMeta('og:url', meta.url);
+  setMeta('theme-color', '#C9A84C', 'name');
 }

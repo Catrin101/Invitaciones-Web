@@ -37,6 +37,32 @@ export function renderWelcome(welcome) {
 }
 
 // ─────────────────────────────────────────────
+// CH 4.5 — ITINERARIO
+// ─────────────────────────────────────────────
+export function renderItinerary(itinerary) {
+  const el = document.getElementById('ch-itinerary');
+  if (!el || !itinerary) return;
+
+  el.innerHTML = `
+    <div class="full-content full-content--alt">
+      <span class="chapter-label">Itinerario</span>
+      <h2 class="headline headline--md">${itinerary.title}</h2>
+      <p class="body-text" style="text-align:center;margin-bottom:2rem">${itinerary.subtitle}</p>
+      
+      <div class="itinerary-list">
+        ${itinerary.events.map(ev => `
+          <div class="itinerary-list__item">
+            <div class="itinerary-list__time">${ev.time}</div>
+            <div class="itinerary-list__icon"><i class="${ev.icon}"></i></div>
+            <div class="itinerary-list__title">${ev.title}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// ─────────────────────────────────────────────
 // META TAGS (OG / WhatsApp preview)
 // ─────────────────────────────────────────────
 export function renderMeta(meta, couple) {
