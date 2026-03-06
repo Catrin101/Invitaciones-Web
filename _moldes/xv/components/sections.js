@@ -143,6 +143,48 @@ export function renderGallery(gallery) {
       `).join('')}
     </div>
   `;
+
+  // --- Lightbox ---
+  let lightbox = document.getElementById('gallery-lightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'gallery-lightbox';
+    Object.assign(lightbox.style, {
+      position: 'fixed', inset: '0', backgroundColor: 'rgba(0,0,0,0.92)',
+      zIndex: '99999', display: 'none', alignItems: 'center', justifyContent: 'center',
+      cursor: 'zoom-out', opacity: '0', transition: 'opacity 0.3s ease'
+    });
+
+    const lbImg = document.createElement('img');
+    Object.assign(lbImg.style, {
+      maxWidth: '90%', maxHeight: '90%', objectFit: 'contain', borderRadius: '8px',
+      boxShadow: '0 10px 30px rgba(0,0,0,0.5)', transform: 'scale(0.95)', transition: 'transform 0.3s ease'
+    });
+    lightbox.appendChild(lbImg);
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.opacity = '0';
+      lbImg.style.transform = 'scale(0.95)';
+      setTimeout(() => { lightbox.style.display = 'none'; }, 300);
+    });
+
+    document.body.appendChild(lightbox);
+  }
+
+  const items = el.querySelectorAll('.mosaic__item, .gallery__item');
+  items.forEach(item => {
+    item.style.cursor = 'zoom-in';
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      if (!img) return;
+      const lbImg = lightbox.querySelector('img');
+      lbImg.src = img.src;
+      lightbox.style.display = 'flex';
+      lightbox.offsetHeight; // force reflow
+      lightbox.style.opacity = '1';
+      lbImg.style.transform = 'scale(1)';
+    });
+  });
 }
 
 // ─────────────────────────────────────────────
