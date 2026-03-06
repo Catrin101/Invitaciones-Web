@@ -62,9 +62,6 @@ async function init() {
     ChapterEngine.init({ chapters: CHAPTERS, stage });
 
     // ── 5. Quitar estado de carga ──────────────────────────
-    document.body.classList.remove('is-loading');
-    document.body.classList.add('is-ready');
-
   } catch (err) {
     console.error('[App] Error de inicialización:', err);
     document.body.innerHTML = `

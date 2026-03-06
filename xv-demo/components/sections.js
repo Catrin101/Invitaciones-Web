@@ -251,7 +251,7 @@ export function renderMusicControl(music) {
   if (!el) return;
 
   el.innerHTML = `
-    <audio id="bg-audio" loop="${music.loop}" preload="none">
+    <audio id="bg-audio" loop="${music.loop}" preload="auto">
       <source src="${music.src}" type="audio/mpeg">
     </audio>
     <button
@@ -272,7 +272,8 @@ export function renderMusicControl(music) {
   btn.addEventListener('click', () => {
     playing = !playing;
     if (playing) {
-      audio.play().catch(() => { }); // Ignore autoplay policy rejections
+      if (audio.readyState === 0) audio.load();
+      audio.play().catch(e => console.warn("Autoplay prevented:", e));
       btn.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
       btn.setAttribute('aria-label', 'Pausar música');
       btn.setAttribute('aria-pressed', 'true');

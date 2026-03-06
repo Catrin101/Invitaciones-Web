@@ -48,7 +48,10 @@ function initSplash() {
       }, { once: true });
     }, 600); // wait for envelope open animation
 
-    audio?.play().catch(() => { });
+    if (audio) {
+      if (audio.readyState === 0) audio.load();
+      audio.play().catch(e => console.warn("Autoplay prevented:", e));
+    }
     musicBtn?.setAttribute('aria-pressed', 'true');
     musicBtn?.classList.add('music-btn--playing');
   }, { once: true });

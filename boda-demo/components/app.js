@@ -55,8 +55,12 @@ function initSplash() {
       }, { once: true });
     }, 700); // wait for curtain animation
 
-    audio?.play().catch(() => { });
-    musicBtn?.classList.add('playing');
+    if (audio) {
+      if (!audio.src) audio.src = document.getElementById('music-btn').dataset.src;
+      audio.load();
+      audio.play().catch(e => console.warn("Autoplay prevented:", e));
+      musicBtn?.classList.add('playing');
+    }
   }, { once: true });
 }
 

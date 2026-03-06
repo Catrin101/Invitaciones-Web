@@ -51,6 +51,15 @@ async function init() {
     requestAnimationFrame(() => ScrollReveal.init());
 
     // ── 5. Remove loading state ────────────────────────────────────────────
+    // Attempt to play audio if available, before removing loading state
+    const audio = document.getElementById('background-music');
+    const musicBtn = document.getElementById('music-control-btn');
+    if (audio) {
+      if (audio.readyState === 0) audio.load();
+      audio.play().catch(e => console.warn("Autoplay prevented:", e));
+    }
+    musicBtn?.classList.add('playing');
+
     document.body.classList.remove('is-loading');
     document.body.classList.add('is-ready');
 

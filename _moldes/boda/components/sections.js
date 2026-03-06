@@ -299,14 +299,21 @@ export function renderMusicControl(music) {
   if (!btn) return;
 
   const audio = document.getElementById('bg-audio');
-  if (audio) audio.src = music.src;
+  if (audio) {
+    audio.src = music.src;
+    audio.preload = "auto";
+  }
+
+  // Store src on button so splash can use it if audio tag was empty
+  btn.dataset.src = music.src;
 
   let playing = false;
 
   btn.addEventListener('click', () => {
     playing = !playing;
     if (playing) {
-      audio?.play().catch(() => { });
+      if (audio.readyState === 0) audio.load();
+      audio?.play().catch(e => console.warn("Play prevented:", e));
       btn.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
       btn.classList.add('playing');
       btn.setAttribute('aria-label', 'Pausar música');
