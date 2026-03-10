@@ -66,27 +66,27 @@
     "subtitle": "Momentos que guardaré para siempre",
     "photos": [
       {
-        "url": "https://images.unsplash.com/photo-1516726817505-f5ed825624d8?w=600&q=75",
+        "url": "./assets/img/Retrato elegante.png",
         "alt": "Retrato elegante"
       },
       {
-        "url": "./assets/img/KL23813.webp",
+        "url": "./assets/img/Vestido de noche.png",
         "alt": "Vestido de noche"
       },
       {
-        "url": "https://images.unsplash.com/photo-1533616688419-b7a585564566?w=800&q=80",
+        "url": "./assets/img/Arreglo floral.png",
         "alt": "Arreglo floral"
       },
       {
-        "url": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=75",
+        "url": "./assets/img/Salon del evento.png",
         "alt": "Salón del evento"
       },
       {
-        "url": "./assets/img/s-l400.webp",
+        "url": "./assets/img/Tiara de quinceanera.png",
         "alt": "Tiara de quinceañera"
       },
       {
-        "url": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&q=75",
+        "url": "./assets/img/Decoracion de globos.png",
         "alt": "Decoración de globos"
       }
     ]

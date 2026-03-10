@@ -349,21 +349,27 @@ export function renderMusicControl(music) {
   // Store src on button so splash can use it if audio tag was empty
   btn.dataset.src = music.src;
 
-  let playing = false;
-
-  btn.addEventListener('click', () => {
-    playing = !playing;
-    if (playing) {
-      if (audio.readyState === 0) audio.load();
-      audio?.play().catch(e => console.warn("Play prevented:", e));
+  const updatePlayState = () => {
+    if (!audio.paused) {
       btn.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
       btn.classList.add('playing');
       btn.setAttribute('aria-label', 'Pausar música');
     } else {
-      audio?.pause();
       btn.innerHTML = '<i class="fa-solid fa-music" aria-hidden="true"></i>';
       btn.classList.remove('playing');
       btn.setAttribute('aria-label', 'Reproducir música');
+    }
+  };
+
+  audio.addEventListener('play', updatePlayState);
+  audio.addEventListener('pause', updatePlayState);
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      if (audio.readyState === 0) audio.load();
+      audio?.play().catch(e => console.warn("Play prevented:", e));
+    } else {
+      audio?.pause();
     }
   });
 }

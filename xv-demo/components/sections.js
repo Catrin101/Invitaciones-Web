@@ -309,23 +309,30 @@ export function renderMusicControl(music) {
 
   const audio = document.getElementById('bg-audio');
   const btn = document.getElementById('music-btn');
-  let playing = false;
 
-  btn.addEventListener('click', () => {
-    playing = !playing;
-    if (playing) {
-      if (audio.readyState === 0) audio.load();
-      audio.play().catch(e => console.warn("Autoplay prevented:", e));
+  const updatePlayState = () => {
+    if (!audio.paused) {
       btn.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
       btn.setAttribute('aria-label', 'Pausar música');
       btn.setAttribute('aria-pressed', 'true');
       btn.classList.add('music-btn--playing');
     } else {
-      audio.pause();
       btn.innerHTML = '<i class="fa-solid fa-music" aria-hidden="true"></i>';
       btn.setAttribute('aria-label', 'Reproducir música de fondo');
       btn.setAttribute('aria-pressed', 'false');
       btn.classList.remove('music-btn--playing');
+    }
+  };
+
+  audio.addEventListener('play', updatePlayState);
+  audio.addEventListener('pause', updatePlayState);
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      if (audio.readyState === 0) audio.load();
+      audio.play().catch(e => console.warn("Autoplay prevented:", e));
+    } else {
+      audio.pause();
     }
   });
 }
