@@ -98,6 +98,7 @@
   "dresscode": {
     "label": "Etiqueta formal",
     "description": "Les pedimos vestimenta formal. Paleta sugerida: tonos tierra, verde salvia, vino o negro. Evitar blanco y rojo.",
+    "pinterestUrl": "https://pinterest.com/tu-tablero-de-ejemplos",
     "colors": [
       {
         "name": "Salvia",
@@ -119,6 +120,23 @@
         "name": "Blanco",
         "hex": "#F5F0E8",
         "avoid": true
+      }
+    ]
+  },
+  "gifts": {
+    "title": "Mesa de Regalos",
+    "subtitle": "Tu presencia es nuestro mejor regalo",
+    "description": "Si deseas tener un detalle con nosotros, aquí están nuestras tiendas preferidas:",
+    "stores": [
+      {
+        "name": "Amazon",
+        "url": "https://amazon.com.mx/wishlist/ejemplo",
+        "icon": "fa-brands fa-amazon"
+      },
+      {
+        "name": "Liverpool",
+        "url": "https://liverpool.com.mx/mesa-de-regalos/ejemplo",
+        "icon": "fa-solid fa-gift"
       }
     ]
   },

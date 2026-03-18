@@ -20,6 +20,7 @@ import {
   renderItinerary,
   renderGallery,
   renderDressCode,
+  renderGiftRegistry,
   renderRSVP,
   renderMusicControl,
 } from './sections.js';
@@ -80,6 +81,7 @@ async function init() {
     renderItinerary(config.itinerary);
     renderGallery(config.gallery);
     renderDressCode(config.dresscode);
+    renderGiftRegistry(config.gifts);
     renderRSVP(config.rsvp);
     renderMusicControl(config.music);
 

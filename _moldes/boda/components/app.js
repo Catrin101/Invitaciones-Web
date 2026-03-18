@@ -16,6 +16,7 @@ import {
   renderItinerary,
   renderGallery,
   renderDressCode,
+  renderGiftRegistry,
   renderRSVP,
   renderMusicControl,
 } from './sections.js';
@@ -29,6 +30,7 @@ const CHAPTERS = [
   { id: 'ch-itinerary', label: 'Itinerario' },
   { id: 'ch-gallery', label: 'Galería' },
   { id: 'ch-dresscode', label: 'Vestimenta' },
+  { id: 'ch-gifts', label: 'Mesa de regalos' },
   { id: 'ch-rsvp', label: 'Confirmar' },
 ];
 
@@ -54,6 +56,7 @@ async function init() {
     renderItinerary(config.itinerary);
     renderGallery(config.gallery);
     renderDressCode(config.dresscode);
+    renderGiftRegistry(config.gifts);
     renderRSVP(config.rsvp);
     renderMusicControl(config.music);
 

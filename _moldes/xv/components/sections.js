@@ -194,6 +194,17 @@ export function renderDressCode(dresscode) {
   const el = document.getElementById('section-dresscode');
   if (!el) return;
 
+  const pinterestBtn = dresscode.pinterestUrl ? `
+    <a href="${dresscode.pinterestUrl}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn btn--pinterest reveal-up"
+       aria-label="Ver ejemplos de vestimenta en Pinterest">
+      <i class="fa-brands fa-pinterest" aria-hidden="true"></i>
+      Ver ejemplos de vestimenta
+    </a>
+  ` : '';
+
   el.innerHTML = `
     <header class="section__header reveal-up">
       <h2 class="section__title">${dresscode.title}</h2>
@@ -210,6 +221,7 @@ export function renderDressCode(dresscode) {
       `).join('')}
     </div>
     <p class="dresscode__desc reveal-up">${dresscode.description}</p>
+    ${pinterestBtn}
   `;
 }
 
@@ -239,6 +251,39 @@ export function renderRSVP(rsvp) {
       <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
       ${rsvp.buttonText}
     </a>
+  `;
+}
+
+// ─────────────────────────────────────────────
+// MESA DE REGALOS
+// ─────────────────────────────────────────────
+export function renderGiftRegistry(gifts) {
+  const el = document.getElementById('section-gifts');
+  if (!el || !gifts) return;
+
+  el.innerHTML = `
+    <div class="section section--alt">
+      <div class="section__inner reveal-up">
+        <header class="section__header">
+          <h2 class="section__title">${gifts.title}</h2>
+          <p class="section__subtitle">${gifts.subtitle}</p>
+        </header>
+        <p class="section__desc" style="text-align:center;margin-bottom:2rem">${gifts.description}</p>
+        
+        <div class="gifts-stores">
+          ${gifts.stores.map(store => `
+            <a href="${store.url}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="gift-store-card"
+               aria-label="Ver mesa de regalos en ${store.name}">
+              <i class="${store.icon} gift-store-icon" aria-hidden="true"></i>
+              <span class="gift-store-name">${store.name}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    </div>
   `;
 }
 

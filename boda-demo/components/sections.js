@@ -311,6 +311,17 @@ export function renderDressCode(dresscode) {
   const el = document.getElementById('ch-dresscode');
   if (!el) return;
 
+  const pinterestBtn = dresscode.pinterestUrl ? `
+    <a href="${dresscode.pinterestUrl}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn btn--pinterest"
+       aria-label="Ver ejemplos de vestimenta en Pinterest">
+      <i class="fa-brands fa-pinterest" aria-hidden="true"></i>
+      Ver ejemplos de vestimenta
+    </a>
+  ` : '';
+
   el.innerHTML = `
     <div class="split">
       <div class="split__photo">
@@ -333,6 +344,7 @@ export function renderDressCode(dresscode) {
             </div>
           `).join('')}
         </div>
+        ${pinterestBtn}
       </div>
     </div>
   `;
@@ -367,6 +379,36 @@ export function renderRSVP(rsvp) {
         <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
         ${rsvp.buttonText}
       </a>
+    </div>
+  `;
+}
+
+// ─────────────────────────────────────────────
+// CH 7.5 — MESA DE REGALOS
+// ─────────────────────────────────────────────
+export function renderGiftRegistry(gifts) {
+  const el = document.getElementById('ch-gifts');
+  if (!el || !gifts) return;
+
+  el.innerHTML = `
+    <div class="full-content full-content--alt">
+      <span class="chapter-label">${gifts.title}</span>
+      <h2 class="headline headline--md">${gifts.subtitle}</h2>
+      <div class="thin-rule"></div>
+      <p class="body-text" style="text-align:center;margin-bottom:2rem">${gifts.description}</p>
+      
+      <div class="gifts-stores">
+        ${gifts.stores.map(store => `
+          <a href="${store.url}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="gift-store-card"
+             aria-label="Ver mesa de regalos en ${store.name}">
+            <i class="${store.icon} gift-store-icon" aria-hidden="true"></i>
+            <span class="gift-store-name">${store.name}</span>
+          </a>
+        `).join('')}
+      </div>
     </div>
   `;
 }

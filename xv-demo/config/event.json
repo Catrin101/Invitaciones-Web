@@ -95,6 +95,7 @@
     "title": "Código de Vestimenta",
     "subtitle": "Formal",
     "description": "Les pedimos asistir en vestimenta formal. Agradecemos evitar el color blanco y rojo.",
+    "pinterestUrl": "https://pinterest.com/tu-tablero-de-ejemplos",
     "colors": [
       {
         "name": "Lila Pastel",
@@ -112,6 +113,23 @@
       {
         "name": "Azul Celeste",
         "hex": "#AEE2FF"
+      }
+    ]
+  },
+  "gifts": {
+    "title": "Mesa de Regalos",
+    "subtitle": "Tu presencia es mi mejor regalo",
+    "description": "Si deseas tener un detalle conmigo, aquí están mis tiendas preferidas:",
+    "stores": [
+      {
+        "name": "Amazon",
+        "url": "https://amazon.com.mx/wishlist/ejemplo",
+        "icon": "fa-brands fa-amazon"
+      },
+      {
+        "name": "Liverpool",
+        "url": "https://liverpool.com.mx/mesa-de-regalos/ejemplo",
+        "icon": "fa-solid fa-gift"
       }
     ]
   },
