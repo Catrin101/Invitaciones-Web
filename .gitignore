@@ -1,11 +1,33 @@
-# Documentación interna (ignorar en el repo)
-ANTIGRAVITY_PROMPT.md
-instrucciones-modificaciones.md
-ARQUITECTURA.md
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+public/
 
 # OS files
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# VS Code
+# IDE
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Package locks (opcional, descomentar si quieres incluirlos)
+# package-lock.json
+# yarn.lock

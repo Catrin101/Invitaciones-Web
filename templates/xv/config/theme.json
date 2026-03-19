@@ -1,0 +1,70 @@
+{
+  "theme": {
+    "name": "xv-elegante",
+    "description": "Elegante romántico — fondo oscuro con acentos dorados y rosa",
+
+    "colors": {
+      "background":    "#0D0D0D",
+      "surface":       "#1A1A1A",
+      "surfaceAlt":    "#141414",
+      "accentPrimary": "#C9A84C",
+      "accentSecond":  "#E8B4B8",
+      "text":          "#F5F0E8",
+      "textMuted":     "#9A8F85",
+      "ctaWhatsapp":   "#25D366",
+      "overlay":       "rgba(0,0,0,0.50)"
+    },
+
+    "fonts": {
+      "display": {
+        "family": "'Playfair Display', serif",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      },
+      "decorative": {
+        "family": "'Dancing Script', cursive",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap"
+      },
+      "body": {
+        "family": "'Lato', sans-serif",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      }
+    },
+
+    "fontSizes": {
+      "heroName":   "clamp(3rem, 10vw, 7rem)",
+      "heroTag":    "clamp(1.2rem, 4vw, 2rem)",
+      "sectionTitle":"clamp(1.6rem, 4vw, 2.6rem)",
+      "body":       "1rem",
+      "small":      "0.85rem"
+    },
+
+    "spacing": {
+      "sectionPadding": "80px 20px",
+      "maxWidth":        "860px"
+    },
+
+    "borders": {
+      "radius":        "4px",
+      "radiusLg":      "12px",
+      "radiusRound":   "50px"
+    },
+
+    "shadows": {
+      "gold":      "0 0 40px rgba(201,168,76,0.15)",
+      "whatsapp":  "0 4px 20px rgba(37,211,102,0.4)",
+      "card":      "0 8px 32px rgba(0,0,0,0.4)"
+    },
+
+    "animations": {
+      "heroFadeIn":    "0.9s",
+      "scrollReveal":  "0.6s",
+      "hoverScale":    "0.3s",
+      "buttonHover":   "0.2s"
+    },
+
+    "decorators": {
+      "sectionDivider": "❧",
+      "heroScrollHint": "↓"
+    }
+  }
+}

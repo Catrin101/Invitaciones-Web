@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta property="og:type" content="website" />
+
+  <title>Cargando invitación…</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" />
+
+  <!-- Google Fonts inyectadas por ThemeEngine desde theme.json -->
+
+  <!-- Estilos del template XV -->
+  <link rel="stylesheet" href="../../templates/xv/styles/main.css" />
+</head>
+
+<body class="is-loading">
+
+  <!-- ── Audio (src asignado por renderMusicControl) ───── -->
+  <audio id="bg-audio" loop preload="none"></audio>
+
+  <!-- ── Botón de música (fixed, top-right) ────────────── -->
+  <button id="music-btn" aria-label="Reproducir música">
+    <i class="fa-solid fa-music" aria-hidden="true"></i>
+  </button>
+
+  <!-- ── Dots de navegación lateral ───────────────────── -->
+  <nav id="side-nav" aria-label="Navegación por capítulos"></nav>
+
+  <!-- ── Contador de capítulo ──────────────────────────── -->
+  <div id="chapter-counter" aria-live="polite"></div>
+
+  <!-- ── Flechas de navegación ─────────────────────────── -->
+  <nav class="chapter-nav" aria-label="Anterior / Siguiente capítulo">
+    <button class="chapter-nav__btn" id="btn-prev" aria-label="Capítulo anterior">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </button>
+    <button class="chapter-nav__btn" id="btn-next" aria-label="Capítulo siguiente">
+      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    </button>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       0. SPLASH — pantalla de entrada animada
+       ════════════════════════════════════════ -->
+  <div id="splash-screen" role="dialog" aria-modal="true" aria-label="Pantalla de bienvenida">
+    <div class="splash__envelope" aria-hidden="true">
+      <svg class="envelope-svg" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="env-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:var(--color-accent);stop-opacity:0.9"/>
+            <stop offset="100%" style="stop-color:var(--color-accent);stop-opacity:0.6"/>
+          </linearGradient>
+        </defs>
+        <rect class="env-body" x="10" y="50" width="180" height="100" rx="4"
+          fill="var(--color-surface)" stroke="var(--color-accent)" stroke-width="1.5" />
+        <line x1="10" y1="50" x2="100" y2="110" stroke="var(--color-accent)" stroke-width="0.8" opacity="0.3" />
+        <line x1="190" y1="50" x2="100" y2="110" stroke="var(--color-accent)" stroke-width="0.8" opacity="0.3" />
+        <polygon class="env-flap" points="10,50 100,10 190,50" fill="url(#env-grad)"
+          stroke="var(--color-accent)" stroke-width="1.5" />
+        <text x="100" y="115" text-anchor="middle" fill="var(--color-accent)" font-size="20" opacity="0.6">♥</text>
+      </svg>
+    </div>
+    <div class="splash__content">
+      <p class="splash__pre">Te invitamos a</p>
+      <h2 class="splash__name"><!-- populated from JS --></h2>
+      <button id="splash-btn" class="splash__btn" type="button">
+        Abrir invitación
+        <span class="splash__btn-icon" aria-hidden="true">✉</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       STAGE — los capítulos se inyectan aquí
+       ════════════════════════════════════════════ -->
+  <div id="stage">
+    <section id="section-welcome" class="chapter" aria-label="Mensaje de bienvenida"></section>
+    <section id="section-hero" class="chapter" aria-label="Portada"></section>
+    <section id="section-countdown" class="chapter" aria-label="Cuenta regresiva"></section>
+    <section id="section-event" class="chapter" aria-label="Detalles del evento"></section>
+    <section id="section-itinerary" class="chapter" aria-label="Itinerario"></section>
+    <section id="section-gallery" class="chapter" aria-label="Galería de fotos"></section>
+    <section id="section-dresscode" class="chapter" aria-label="Código de vestimenta"></section>
+    <section id="section-gifts" class="chapter" aria-label="Mesa de regalos"></section>
+    <section id="section-rsvp" class="chapter" aria-label="Confirmación de asistencia"></section>
+  </div>
+
+  <!-- Footer -->
+  <footer id="section-footer"></footer>
+
+  <!-- ════════════════════════════════════════════
+       Entry point — ES Modules
+       ════════════════════════════════════════════ -->
+  <script type="module">
+    import App, { bootstrap } from '../../core/engine/App.js';
+    import * as xvSections from '../../templates/xv/sections/sections.js';
+
+    // Registrar renderizadores del template XV
+    App.registerRenderers(xvSections);
+
+    // Inicializar aplicación
+    bootstrap({
+      template: 'xv',
+      eventConfig: './config/event.json',
+      themeConfig: './config/theme.json',
+      chapters: [
+        { id: 'section-welcome', label: 'Bienvenida' },
+        { id: 'section-hero', label: 'Portada' },
+        { id: 'section-countdown', label: 'Cuenta regresiva' },
+        { id: 'section-event', label: 'Detalles' },
+        { id: 'section-itinerary', label: 'Itinerario' },
+        { id: 'section-gallery', label: 'Galería' },
+        { id: 'section-dresscode', label: 'Vestimenta' },
+        { id: 'section-gifts', label: 'Regalos' },
+        { id: 'section-rsvp', label: 'Confirmar' },
+      ],
+      renderOrder: [
+        { id: 'renderMeta', args: [] },
+        { id: 'renderSplash', args: [] },
+        { id: 'renderHero', args: [] },
+        { id: 'renderCountdown', args: [] },
+        { id: 'renderEventDetails', args: [] },
+        { id: 'renderItinerary', args: [] },
+        { id: 'renderGallery', args: [] },
+        { id: 'renderDressCode', args: [] },
+        { id: 'renderGiftRegistry', args: [] },
+        { id: 'renderRSVP', args: [] },
+        { id: 'renderFooter', args: [] },
+        { id: 'renderMusicControl', args: [] },
+      ],
+    });
+  </script>
+
+</body>
+
+</html>

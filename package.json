@@ -1,0 +1,29 @@
+{
+  "name": "invitaciones-web",
+  "version": "2.0.0",
+  "description": "Framework escalable para invitaciones web basado en templates",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/dev-server.js",
+    "build": "node tools/build.js",
+    "build:invitation": "node tools/build.js --invitation",
+    "clean": "rm -rf public",
+    "lint": "eslint core/ templates/ invitations/ tools/"
+  },
+  "keywords": [
+    "invitaciones",
+    "bodas",
+    "xv",
+    "eventos",
+    "templates",
+    "web"
+  ],
+  "author": "Gudino Dev",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

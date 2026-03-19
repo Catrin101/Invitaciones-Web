@@ -1,0 +1,158 @@
+{
+  "welcome": {
+    "message": "Con mucho cariño, te invito a ser parte de uno de los momentos más especiales de mi vida. Tu presencia hace que este día sea aún más especial.",
+    "signature": "— Valentina"
+  },
+  "meta": {
+    "title": "XV Años Valentina Herrera 🌸",
+    "description": "Te invito a celebrar mis XV años. 15 de Junio 2026",
+    "url": "https://catrin101.github.io/demo-xv-valentina",
+    "language": "es"
+  },
+  "hero": {
+    "name": "Valentina",
+    "lastName": "Herrera González",
+    "tagline": "Mis XV Años",
+    "subtitle": "Con la gracia de Dios y el amor de mi familia",
+    "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1200&q=80",
+    "imageAlt": "Valentina — XV Años"
+  },
+  "event": {
+    "date": "2026-06-15T19:00:00",
+    "dateDisplay": "15 de Junio de 2026",
+    "time": "7:00 PM",
+    "venue": {
+      "name": "Salón El Jardín Real",
+      "address": "Av. Reforma #1234, Mexicali, B.C.",
+      "mapsUrl": "https://maps.google.com/?q=Salon+El+Jardin+Real+Mexicali"
+    }
+  },
+  "itinerary": {
+    "title": "Itinerario",
+    "subtitle": "Lo que nos espera en este día",
+    "events": [
+      {
+        "time": "18:00",
+        "title": "Ceremonia",
+        "icon": "fa-solid fa-church"
+      },
+      {
+        "time": "19:00",
+        "title": "Recepción",
+        "icon": "fa-solid fa-champagne-glasses"
+      },
+      {
+        "time": "20:00",
+        "title": "Cena",
+        "icon": "fa-solid fa-utensils"
+      },
+      {
+        "time": "22:00",
+        "title": "Fiesta",
+        "icon": "fa-solid fa-music"
+      }
+    ]
+  },
+  "countdown": {
+    "labels": {
+      "days": "Días",
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    }
+  },
+  "gallery": {
+    "title": "Galería",
+    "subtitle": "Momentos que guardaré para siempre",
+    "photos": [
+      {
+        "url": "./assets/img/Retrato elegante.png",
+        "alt": "Retrato elegante"
+      },
+      {
+        "url": "./assets/img/Vestido de noche.png",
+        "alt": "Vestido de noche"
+      },
+      {
+        "url": "./assets/img/Arreglo floral.png",
+        "alt": "Arreglo floral"
+      },
+      {
+        "url": "./assets/img/Salon del evento.png",
+        "alt": "Salón del evento"
+      },
+      {
+        "url": "./assets/img/Tiara de quinceanera.png",
+        "alt": "Tiara de quinceañera"
+      },
+      {
+        "url": "./assets/img/Decoracion de globos.png",
+        "alt": "Decoración de globos"
+      }
+    ]
+  },
+  "dresscode": {
+    "title": "Código de Vestimenta",
+    "subtitle": "Formal",
+    "description": "Les pedimos asistir en vestimenta formal. Agradecemos evitar el color blanco y rojo.",
+    "pinterestUrl": "https://pinterest.com/tu-tablero-de-ejemplos",
+    "colors": [
+      {
+        "name": "Lila Pastel",
+        "hex": "#B19CD9"
+      },
+      {
+        "name": "Rosa Pastel",
+        "hex": "#FFB7B2"
+      },
+      {
+        "name": "Blanco",
+        "hex": "#FFFFFF",
+        "avoid": true
+      },
+      {
+        "name": "Azul Celeste",
+        "hex": "#AEE2FF"
+      }
+    ]
+  },
+  "gifts": {
+    "title": "Mesa de Regalos",
+    "subtitle": "Tu presencia es mi mejor regalo",
+    "description": "Si deseas tener un detalle conmigo, aquí están mis tiendas preferidas:",
+    "stores": [
+      {
+        "name": "Amazon",
+        "url": "https://amazon.com.mx/wishlist/ejemplo",
+        "icon": "fa-brands fa-amazon"
+      },
+      {
+        "name": "Liverpool",
+        "url": "https://liverpool.com.mx/mesa-de-regalos/ejemplo",
+        "icon": "fa-solid fa-gift"
+      }
+    ]
+  },
+  "rsvp": {
+    "title": "Confirma tu Asistencia",
+    "subtitle": "Tu presencia es el mejor regalo",
+    "deadline": "10 de Junio de 2026",
+    "whatsapp": {
+      "number": "526864602677",
+      "message": "Hola! Confirmo mi asistencia a los XV años de Valentina el 15 de Junio. Mi nombre es: "
+    },
+    "buttonText": "Confirmar por WhatsApp"
+  },
+  "music": {
+    "enabled": true,
+    "src": "assets/audio/background.mp3",
+    "autoplay": false,
+    "loop": true,
+    "tooltip": "Música"
+  },
+  "footer": {
+    "message": "Con amor, la familia Herrera González",
+    "brand": "Gudino Dev",
+    "brandUrl": "https://catrin101.github.io"
+  }
+}

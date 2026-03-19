@@ -1,0 +1,88 @@
+{
+  "name": "boda-editorial",
+  "description": "Editorial de lujo para bodas — marfil, salvia y cobre. Sensación de papel de alta calidad.",
+  "version": "1.0.0",
+  "type": "boda",
+
+  "sections": [
+    { "id": "welcome", "component": "Welcome", "order": 1, "enabled": true },
+    { "id": "hero", "component": "HeroBoda", "order": 2, "enabled": true },
+    { "id": "story", "component": "Story", "order": 3, "enabled": true },
+    { "id": "countdown", "component": "Countdown", "order": 4, "enabled": true },
+    { "id": "details", "component": "DetailsBoda", "order": 5, "enabled": true },
+    { "id": "itinerary", "component": "Itinerary", "order": 6, "enabled": true },
+    { "id": "gallery", "component": "Gallery", "order": 7, "enabled": true },
+    { "id": "dresscode", "component": "DressCode", "order": 8, "enabled": true },
+    { "id": "gifts", "component": "GiftRegistry", "order": 9, "enabled": true },
+    { "id": "rsvp", "component": "RSVP", "order": 10, "enabled": true }
+  ],
+
+  "chapters": [
+    { "id": "ch-welcome", "label": "Bienvenida" },
+    { "id": "ch-hero", "label": "Portada" },
+    { "id": "ch-story", "label": "Nuestra historia" },
+    { "id": "ch-countdown", "label": "Cuenta regresiva" },
+    { "id": "ch-details", "label": "El gran día" },
+    { "id": "ch-itinerary", "label": "Itinerario" },
+    { "id": "ch-gallery", "label": "Galería" },
+    { "id": "ch-dresscode", "label": "Vestimenta" },
+    { "id": "ch-gifts", "label": "Mesa de regalos" },
+    { "id": "ch-rsvp", "label": "Confirmar" }
+  ],
+
+  "features": {
+    "splash": true,
+    "music": true,
+    "navigation": "chapter-dots",
+    "animations": "scroll-reveal"
+  },
+
+  "defaults": {
+    "colors": {
+      "background": "#F7F3EC",
+      "surface": "#EDE8DF",
+      "surfaceAlt": "#F0EBE2",
+      "accentPrimary": "#7D9B76",
+      "accentSecond": "#B87333",
+      "text": "#2A2118",
+      "textMuted": "#8A7D6E",
+      "ctaWhatsapp": "#25D366",
+      "overlay": "rgba(42, 33, 24, 0.42)"
+    },
+    "fonts": {
+      "display": {
+        "family": "'Cormorant Garamond', serif",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
+      },
+      "decorative": {
+        "family": "'IM Fell English', serif",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap"
+      },
+      "body": {
+        "family": "'Jost', sans-serif",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
+      }
+    },
+    "animations": {
+      "pageTransition": "0.7s",
+      "heroReveal": "1.1s",
+      "stagger": "120ms"
+    }
+  },
+
+  "renderOrder": [
+    { "id": "renderMeta", "args": ["{{meta}}", "{{couple}}"] },
+    { "id": "renderSplash", "args": ["{{couple}}"] },
+    { "id": "renderWelcome", "args": ["{{welcome}}"] },
+    { "id": "renderHero", "args": ["{{couple}}", "{{event}}"] },
+    { "id": "renderStory", "args": ["{{couple}}"] },
+    { "id": "renderCountdown", "args": ["{{event}}", "{{countdown.labels}}"] },
+    { "id": "renderDetails", "args": ["{{event}}"] },
+    { "id": "renderItinerary", "args": ["{{itinerary}}"] },
+    { "id": "renderGallery", "args": ["{{gallery}}"] },
+    { "id": "renderDressCode", "args": ["{{dresscode}}"] },
+    { "id": "renderGiftRegistry", "args": ["{{gifts}}"] },
+    { "id": "renderRSVP", "args": ["{{rsvp}}"] },
+    { "id": "renderMusicControl", "args": ["{{music}}"] }
+  ]
+}

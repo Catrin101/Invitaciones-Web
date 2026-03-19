@@ -1,0 +1,83 @@
+{
+  "name": "xv-elegante",
+  "description": "Elegante romántico para XV años — fondo oscuro con acentos dorados y rosa",
+  "version": "1.0.0",
+  "type": "xv",
+
+  "sections": [
+    { "id": "hero", "component": "HeroXV", "order": 1, "enabled": true },
+    { "id": "countdown", "component": "Countdown", "order": 2, "enabled": true },
+    { "id": "details", "component": "DetailsXV", "order": 3, "enabled": true },
+    { "id": "itinerary", "component": "Itinerary", "order": 4, "enabled": true },
+    { "id": "gallery", "component": "Gallery", "order": 5, "enabled": true },
+    { "id": "dresscode", "component": "DressCode", "order": 6, "enabled": true },
+    { "id": "gifts", "component": "GiftRegistry", "order": 7, "enabled": true },
+    { "id": "rsvp", "component": "RSVP", "order": 8, "enabled": true },
+    { "id": "footer", "component": "Footer", "order": 9, "enabled": true }
+  ],
+
+  "chapters": [
+    { "id": "section-hero", "label": "Portada" },
+    { "id": "section-countdown", "label": "Cuenta regresiva" },
+    { "id": "section-event", "label": "Detalles" },
+    { "id": "section-itinerary", "label": "Itinerario" },
+    { "id": "section-gallery", "label": "Galería" },
+    { "id": "section-dresscode", "label": "Vestimenta" },
+    { "id": "section-gifts", "label": "Regalos" },
+    { "id": "section-rsvp", "label": "Confirmar" }
+  ],
+
+  "features": {
+    "splash": false,
+    "music": true,
+    "navigation": "chapter-dots",
+    "animations": "scroll-reveal"
+  },
+
+  "defaults": {
+    "colors": {
+      "background": "#0D0D0D",
+      "surface": "#1A1A1A",
+      "surfaceAlt": "#141414",
+      "accentPrimary": "#C9A84C",
+      "accentSecond": "#E8B4B8",
+      "text": "#F5F0E8",
+      "textMuted": "#9A8F85",
+      "ctaWhatsapp": "#25D366",
+      "overlay": "rgba(0,0,0,0.50)"
+    },
+    "fonts": {
+      "display": {
+        "family": "'Playfair Display', serif",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      },
+      "decorative": {
+        "family": "'Dancing Script', cursive",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap"
+      },
+      "body": {
+        "family": "'Lato', sans-serif",
+        "googleUrl": "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      }
+    },
+    "animations": {
+      "heroFadeIn": "0.9s",
+      "scrollReveal": "0.6s",
+      "hoverScale": "0.3s",
+      "buttonHover": "0.2s"
+    }
+  },
+
+  "renderOrder": [
+    { "id": "renderHero", "args": ["{{hero}}", "{{theme}}"] },
+    { "id": "renderCountdown", "args": ["{{event}}", "{{countdown.labels}}"] },
+    { "id": "renderEventDetails", "args": ["{{event}}"] },
+    { "id": "renderItinerary", "args": ["{{itinerary}}"] },
+    { "id": "renderGallery", "args": ["{{gallery}}"] },
+    { "id": "renderDressCode", "args": ["{{dresscode}}"] },
+    { "id": "renderGiftRegistry", "args": ["{{gifts}}"] },
+    { "id": "renderRSVP", "args": ["{{rsvp}}"] },
+    { "id": "renderFooter", "args": ["{{footer}}"] },
+    { "id": "renderMusicControl", "args": ["{{music}}"] }
+  ]
+}
