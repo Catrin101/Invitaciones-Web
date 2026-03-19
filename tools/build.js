@@ -201,7 +201,14 @@ function build(options = {}) {
   
   // Copiar recursos compartidos
   copySharedResources();
-  
+
+  // Copiar .htaccess si existe
+  const htaccessSrc = join(ROOT, 'tools', '.htaccess');
+  if (existsSync(htaccessSrc)) {
+    copyFileSync(htaccessSrc, join(PUBLIC_DIR, '.htaccess'));
+    console.log('✓ .htaccess copiado');
+  }
+
   // Procesar invitaciones
   let invitations = [];
   

@@ -1,0 +1,269 @@
+# ════════════════════════════════════════════════════════════
+# .htaccess para Invitaciones Web
+# Optimizado para HostGator y hosting compartido (Apache)
+# ════════════════════════════════════════════════════════════
+
+# ────────────────────────────────────────────────────────────
+# 1. ACTIVAR MÓDULOS REQUERIDOS
+# ────────────────────────────────────────────────────────────
+
+# Habilitar reescritura de URLs
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+</IfModule>
+
+# Habilitar caché
+<IfModule mod_expires.c>
+  ExpiresActive On
+</IfModule>
+
+# Habilitar compresión Gzip
+<IfModule mod_deflate.c>
+  # Comprimir HTML, CSS, JS, JSON, SVG
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+
+# ────────────────────────────────────────────────────────────
+# 2. SEGURIDAD
+# ────────────────────────────────────────────────────────────
+
+# Prevenir listado de directorios
+Options -Indexes
+
+# Proteger archivos sensibles
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Bloquear acceso a archivos de configuración
+<FilesMatch "\.(json|md|log)$">
+  <If "%{REQUEST_URI} =~ m#^/?(core|templates|tools)/#">
+    Order allow,deny
+    Deny from all
+  </If>
+</FilesMatch>
+
+# Prevenir hotlinking de imágenes (opcional)
+# Descomentar si quieres evitar que otros usen tus imágenes
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTP_REFERER} !^$
+#   RewriteCond %{HTTP_REFERER} !^https?://(www\.)?tu-dominio\.com [NC]
+#   RewriteRule \.(jpg|jpeg|png|gif|webp|svg)$ - [F,NC]
+# </IfModule>
+
+# Cabeceras de seguridad
+<IfModule mod_headers.c>
+  # Prevenir clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Prevenir MIME sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # Activar XSS filter del navegador
+  Header always set X-XSS-Protection "1; mode=block"
+  
+  # Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Content Security Policy (ajustar según necesidades)
+  # Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://wa.me;"
+</IfModule>
+
+
+# ────────────────────────────────────────────────────────────
+# 3. CACHÉ DE ESTÁTICOS
+# ────────────────────────────────────────────────────────────
+
+<IfModule mod_expires.c>
+  # Imágenes - 1 año
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # Fuentes - 1 año
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/eot "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  
+  # CSS y JavaScript - 1 mes
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  
+  # HTML y JSON - No cachear (o caché corto)
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+  
+  # Audio - 1 año
+  ExpiresByType audio/mpeg "access plus 1 year"
+  ExpiresByType audio/mp3 "access plus 1 year"
+</IfModule>
+
+# Cache-Control para más control
+<IfModule mod_headers.c>
+  # Imágenes, fuentes, audio, video
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|eot|mp3|mp4|webm)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+  
+  # CSS y JavaScript
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  
+  # HTML y JSON
+  <FilesMatch "\.(html|json)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+
+# ────────────────────────────────────────────────────────────
+# 4. MIME TYPES CORRECTOS
+# ────────────────────────────────────────────────────────────
+
+<IfModule mod_mime.c>
+  # Fuentes
+  AddType font/woff .woff
+  AddType font/woff2 .woff2
+  AddType application/font-woff .woff
+  AddType application/font-woff2 .woff2
+  
+  # JSON
+  AddType application/json .json
+  
+  # SVG
+  AddType image/svg+xml .svg
+  
+  # WebP
+  AddType image/webp .webp
+  
+  # Audio
+  AddType audio/mpeg .mp3
+  AddType audio/ogg .ogg
+  AddType audio/webm .webm
+</IfModule>
+
+
+# ────────────────────────────────────────────────────────────
+# 5. REDIRECCIONES ÚTILES
+# ────────────────────────────────────────────────────────────
+
+# Forzar HTTPS (descomentar si tienes SSL activado)
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# Redirigir www a non-www (o viceversa)
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTP_HOST} ^www\.tu-dominio\.com [NC]
+#   RewriteRule ^(.*)$ https://tu-dominio.com/$1 [L,R=301]
+# </IfModule>
+
+# Redirigir carpetas antiguas a nuevas (si es necesario)
+# RewriteRule ^boda-demo/?$ /invitations/isabella-mateo-2026/ [R=301,L]
+# RewriteRule ^xv-demo/?$ /invitations/valentina-xv/ [R=301,L]
+
+
+# ────────────────────────────────────────────────────────────
+# 6. PÁGINAS DE ERROR PERSONALIZADAS
+# ────────────────────────────────────────────────────────────
+
+# Error 404 - Página no encontrada
+ErrorDocument 404 /404.html
+
+# Error 500 - Error interno del servidor
+ErrorDocument 500 /500.html
+
+# Error 403 - Acceso prohibido
+ErrorDocument 403 /403.html
+
+
+# ────────────────────────────────────────────────────────────
+# 7. OPTIMIZACIÓN DE RENDIMIENTO
+# ────────────────────────────────────────────────────────────
+
+# Deshabilitar ETags (mejor usar Last-Modified)
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+FileETag None
+
+# Mantener conexión viva
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
+</IfModule>
+
+# Prevenir caching de archivos con query strings
+<IfModule mod_rewrite.c>
+  RewriteCond %{QUERY_STRING} !=""
+  RewriteRule ^(.*)$ $1 [E=Cache-Control:no-cache]
+</IfModule>
+
+
+# ────────────────────────────────────────────────────────────
+# 8. CONFIGURACIÓN ESPECÍFICA PARA INVITACIONES
+# ────────────────────────────────────────────────────────────
+
+# Prevenir acceso directo a archivos del core
+<IfModule mod_rewrite.c>
+  # Permitir acceso solo a archivos específicos del core
+  RewriteCond %{REQUEST_URI} ^/core/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ - [F,L]
+</IfModule>
+
+# Permitir acceso a JSON solo desde el mismo origen
+<FilesMatch "\.json$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
+
+
+# ────────────────────────────────────────────────────────────
+# 9. UTF-8 Y LOCALIZACIÓN
+# ────────────────────────────────────────────────────────────
+
+# Forzar codificación UTF-8
+AddDefaultCharset UTF-8
+
+# Configurar idioma por defecto
+DefaultLanguage es
+
+
+# ────────────────────────────────────────────────────────────
+# 10. DESHABILITAR MÓDULOS INNecesarios
+# ────────────────────────────────────────────────────────────
+
+# Deshabilitar server signature (seguridad)
+ServerSignature Off
+
+
+# ════════════════════════════════════════════════════════════
+# FIN DE LA CONFIGURACIÓN
+# ════════════════════════════════════════════════════════════
+
+# Notas:
+# - Copia este archivo a la carpeta public/ antes de subir a HostGator
+# - Ajusta las redirecciones según tu dominio
+# - Para activar HTTPS, obtén el certificado SSL en cPanel y descomenta la regla
+# - Los archivos .json de configuración NO deben estar protegidos (se cargan vía JS)
